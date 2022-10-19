@@ -4,6 +4,8 @@ import javax.validation.constraints.NotEmpty;
 
 public class Usuario {
 
+	private int identificador;
+
 	@NotEmpty
 	private String username;
 
@@ -12,6 +14,14 @@ public class Usuario {
 
 	@NotEmpty
 	private String edad;
+
+	public int getIdentificador() {
+		return identificador;
+	}
+
+	public void setIdentificador(int identificador) {
+		this.identificador = identificador;
+	}
 
 	public String getUsername() {
 		return username;

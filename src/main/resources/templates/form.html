@@ -15,7 +15,7 @@
 				<input type="text" id="username" th:field="*{username}">
 			</div>
 			<div th:if="${#fields.hasErrors('username')}">
-				<p th:errrors="*{username}" style="color: red;"></p>
+				<p th:errors="*{username}" style="color: red;"></p>
 			</div>
 		</div>
 
