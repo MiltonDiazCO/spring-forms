@@ -1,8 +1,5 @@
 package com.milton.spring.basico.form.controllers;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -29,15 +26,7 @@ public class FormController {
 	public String process(@Valid Usuario usuario, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-
-			Map<String, String> errores = new HashMap<>();
-
-			result.getFieldErrors().forEach(err -> {
-				String mensajeError = "El campo ".concat(err.getField()).concat(", no debe quedar vacio");
-				errores.put(err.getField(), mensajeError);
-			});
 			model.addAttribute("titulo", "Formulario de registro");
-			model.addAttribute("errores", errores);
 			return "form";
 		}
 

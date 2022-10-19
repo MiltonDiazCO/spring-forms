@@ -8,34 +8,34 @@
 
 	<h3 th:text="${titulo}"></h3>
 
-	<form th:action="@{/form}" method="POST">
+	<form th:action="@{/form}" th:object="${usuario}" method="POST">
 		<div>
 			<label for="username">Username</label>
 			<div>
-				<input type="text" name="username" id="username" th:value="${usuario.username}">
+				<input type="text" id="username" th:field="*{username}">
 			</div>
-			<div th:if="${errores != null && errores.containsKey('username')}">
-				<p th:text="${errores.username}" style="color:red;"></p>
+			<div th:if="${#fields.hasErrors('username')}">
+				<p th:errrors="*{username}" style="color: red;"></p>
 			</div>
 		</div>
 
 		<div>
 			<label for="email">Email</label>
 			<div>
-				<input type="text" name="email" id="email" th:value="${usuario.email}">
+				<input type="text" id="email" th:field="*{email}">
 			</div>
-			<div th:if="${errores != null && errores.containsKey('email')}">
-				<p th:text="${errores.email}" style="color:red;"></p>
+			<div th:if="${#fields.hasErrors('email')}">
+				<p th:errors="*{email}" style="color: red;"></p>
 			</div>
 		</div>
 
 		<div>
 			<label for="edad">Edad</label>
 			<div>
-				<input type="text" name="edad" id="edad" th:value="${usuario.edad}">
+				<input type="text" id="edad" th:field="*{edad}">
 			</div>
-			<div th:if="${errores != null && errores.containsKey('edad')}">
-				<p th:text="${errores.edad}" style="color:red;"></p>
+			<div th:if="${#fields.hasErrors('edad')}">
+				<p th:errors="*{edad}" style="color: red;"></p>
 			</div>
 		</div>
 

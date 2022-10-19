@@ -6,10 +6,10 @@ public class Usuario {
 
 	@NotEmpty
 	private String username;
-	
+
 	@NotEmpty
 	private String email;
-	
+
 	@NotEmpty
 	private String edad;
 
