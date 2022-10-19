@@ -1,9 +1,16 @@
 package com.milton.spring.basico.form.models.domain;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Usuario {
 
+	@NotEmpty
 	private String username;
+	
+	@NotEmpty
 	private String email;
+	
+	@NotEmpty
 	private String edad;
 
 	public String getUsername() {
