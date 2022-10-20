@@ -1,15 +1,19 @@
 package com.milton.spring.basico.form.models.domain;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class Usuario {
 
 	private int identificador;
 
 	@NotEmpty
+	@Size(min = 3, max=8)
 	private String username;
 
 	@NotEmpty
+	@Email
 	private String email;
 
 	@NotEmpty
