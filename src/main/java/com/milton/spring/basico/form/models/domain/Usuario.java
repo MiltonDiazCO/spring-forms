@@ -9,11 +9,11 @@ public class Usuario {
 	private int identificador;
 
 	@NotEmpty
-	@Size(min = 3, max=8)
+	@Size(min = 3, max = 8)
 	private String username;
 
 	@NotEmpty
-	@Email
+	@Email(message = "El formato del correo es incorrecto")
 	private String email;
 
 	@NotEmpty
