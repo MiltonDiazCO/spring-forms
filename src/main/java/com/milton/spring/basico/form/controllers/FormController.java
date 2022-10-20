@@ -2,6 +2,7 @@ package com.milton.spring.basico.form.controllers;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,10 +12,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.milton.spring.basico.form.models.domain.Usuario;
+import com.milton.spring.basico.form.validations.UsuarioValidador;
 
 @Controller
 @SessionAttributes("usuario")
 public class FormController {
+	
+	@Autowired
+	private UsuarioValidador validador;
 
 	@GetMapping({ "/form" })
 	public String form(Model model) {
@@ -28,7 +33,9 @@ public class FormController {
 
 	@PostMapping({ "/form" })
 	public String process(@Valid Usuario usuario, BindingResult result, SessionStatus sesion, Model model) {
-
+		
+		validador.validate(usuario, result);
+		
 		if (result.hasErrors()) {
 			model.addAttribute("titulo", "Formulario de registro");
 			return "form";

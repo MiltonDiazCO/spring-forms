@@ -2,17 +2,14 @@ package com.milton.spring.basico.form.models.domain;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Usuario {
 
 	private int identificador;
 
-	@Pattern(regexp = "[0-9]{2}[.][0-9]{3}[-][A-Z]{1}")
 	private String identificadorRegular;
 
-	@NotEmpty
 	@Size(min = 3, max = 8)
 	private String username;
 
