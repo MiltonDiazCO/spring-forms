@@ -9,6 +9,17 @@
 	<h3 th:text="${titulo}"></h3>
 
 	<form th:action="@{/form}" th:object="${usuario}" method="POST">
+		
+		<div>
+			<label for="identificadorRegular">Identificador Regular</label>
+			<div>
+				<input type="text" id="identificadorRegular" th:field="*{identificadorRegular}">
+			</div>
+			<div th:if="${#fields.hasErrors('identificadorRegular')}">
+				<p th:errors="*{identificadorRegular}" style="color: red;"></p>
+			</div>
+		</div>
+		
 		<div>
 			<label for="username">Username</label>
 			<div>
