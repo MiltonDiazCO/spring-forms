@@ -4,6 +4,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.milton.spring.basico.form.validations.EdadMenorCero;
+
 public class Usuario {
 
 	private int identificador;
@@ -18,6 +20,7 @@ public class Usuario {
 	private String email;
 
 	@NotEmpty
+	@EdadMenorCero
 	private String edad;
 
 	public int getIdentificador() {

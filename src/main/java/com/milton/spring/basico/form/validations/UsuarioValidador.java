@@ -26,8 +26,8 @@ public class UsuarioValidador implements Validator {
 			errors.rejectValue("identificadorRegular", "pattern.usuario.identificadorRegular");
 		}
 		
-		if(usuario.getEdad().contains("@")) {
-			errors.rejectValue("edad", "notChar@.usuario.edad");
+		if(usuario.getIdentificadorRegular().contains("@")) {
+			errors.rejectValue("identificadorRegular", "notChar@.usuario.identificadorRegular");
 		}
 		
 	}
