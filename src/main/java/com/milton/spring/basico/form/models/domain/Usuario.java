@@ -1,11 +1,16 @@
 package com.milton.spring.basico.form.models.domain;
 
+import java.util.Date;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.milton.spring.basico.form.validations.EdadMenorCero;
 
@@ -30,6 +35,11 @@ public class Usuario {
 	@Min(100)
 	@Max(500)
 	private Integer numeroCuenta;
+
+	@NotNull
+	@Past
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fechaNacimiento;
 
 	public int getIdentificador() {
 		return identificador;
@@ -77,6 +87,14 @@ public class Usuario {
 
 	public void setNumeroCuenta(Integer numeroCuenta) {
 		this.numeroCuenta = numeroCuenta;
+	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 }

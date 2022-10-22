@@ -59,6 +59,16 @@
 				<p th:errors="*{numeroCuenta}" style="color: red;"></p>
 			</div>
 		</div>
+		
+		<div>
+			<label for="fechaNacimiento">Fecha de nacimiento</label>
+			<div>
+				<input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}">
+			</div>
+			<div th:if="${#fields.hasErrors('fechaNacimiento')}">
+				<p th:errors="*{fechaNacimiento}" style="color: red;"></p>
+			</div>
+		</div>
 
 		<div>
 			<div>
