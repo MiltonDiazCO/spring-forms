@@ -49,6 +49,16 @@
 				<p th:errors="*{edad}" style="color: red;"></p>
 			</div>
 		</div>
+		
+		<div>
+			<label for="numeroCuenta">Numero de cuenta</label>
+			<div>
+				<input type="text" id="numeroCuenta" th:field="*{numeroCuenta}">
+			</div>
+			<div th:if="${#fields.hasErrors('numeroCuenta')}">
+				<p th:errors="*{numeroCuenta}" style="color: red;"></p>
+			</div>
+		</div>
 
 		<div>
 			<div>
