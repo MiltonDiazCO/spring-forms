@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.milton.spring.basico.form.editors.MayusculaEditor;
 import com.milton.spring.basico.form.models.domain.Usuario;
 import com.milton.spring.basico.form.validations.UsuarioValidador;
 
@@ -35,6 +36,9 @@ public class FormController {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		dateFormat.setLenient(false);
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+		
+		// Convirtiendo texto a mayuscula
+		binder.registerCustomEditor(String.class, "username", new MayusculaEditor());
 	}
 
 	@GetMapping({ "/form" })
