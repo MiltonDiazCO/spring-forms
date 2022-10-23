@@ -29,7 +29,7 @@
 				<td th:text="${usuario.email}"></td>
 				<td th:text="${usuario.edad}"></td>
 				<td th:text="${usuario.numeroCuenta}"></td>
-				<td th:text="${usuario.fechaNacimiento}"></td>
+				<td th:text="${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}"></td>
 				<td th:text="${usuario.paisOrigen}"></td>
 			</tr>
 		</tbody>
