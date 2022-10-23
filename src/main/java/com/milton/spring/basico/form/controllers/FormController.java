@@ -21,7 +21,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.milton.spring.basico.form.editors.MayusculaEditor;
+import com.milton.spring.basico.form.editors.PaisPropertyEditor;
+import com.milton.spring.basico.form.models.domain.Pais;
 import com.milton.spring.basico.form.models.domain.Usuario;
+import com.milton.spring.basico.form.service.PaisService;
 import com.milton.spring.basico.form.validations.UsuarioValidador;
 
 @Controller
@@ -30,6 +33,12 @@ public class FormController {
 	
 	@Autowired
 	private UsuarioValidador validador;
+	
+	@Autowired
+	private PaisService paisesService;
+	
+	@Autowired
+	private PaisPropertyEditor paisEditor;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -42,11 +51,19 @@ public class FormController {
 		
 		// Convirtiendo texto a mayuscula
 		binder.registerCustomEditor(String.class, "username", new MayusculaEditor());
+		
+		// Creando objeto de tipo Pais
+		binder.registerCustomEditor(Pais.class, "paisOrigen", paisEditor);
 	}
 	
 	@ModelAttribute("paises")
 	public List<String> paises() {
 		return Arrays.asList("Colombia", "Peru", "Ecuador", "Brasil");
+	}
+	
+	@ModelAttribute("paisService")
+	public List<Pais> paisService() {
+		return paisesService.list();
 	}
 
 	@GetMapping({ "/form" })

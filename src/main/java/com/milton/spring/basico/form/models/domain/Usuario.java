@@ -38,8 +38,8 @@ public class Usuario {
 	@Past
 	private Date fechaNacimiento;
 
-	@NotEmpty
-	private String paisOrigen;
+	@NotNull
+	private Pais paisOrigen;
 
 	public int getIdentificador() {
 		return identificador;
@@ -97,11 +97,11 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getPaisOrigen() {
+	public Pais getPaisOrigen() {
 		return paisOrigen;
 	}
 
-	public void setPaisOrigen(String paisOrigen) {
+	public void setPaisOrigen(Pais paisOrigen) {
 		this.paisOrigen = paisOrigen;
 	}
 
