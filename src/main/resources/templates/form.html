@@ -69,6 +69,19 @@
 				<p th:errors="*{fechaNacimiento}" style="color: red;"></p>
 			</div>
 		</div>
+		
+		<div>
+			<label for="paisOrigen">País de origen</label>
+			<div>
+				<select id="paisOrigen" th:field="*{paisOrigen}">
+					<option value="">Seleccione un país</option>
+					<option th:each="pais:${paises}" th:value="${pais}" th:text="${pais}">
+				</select>
+			</div>
+			<div th:if="${#fields.hasErrors('paisOrigen')}">
+				<p th:errors="*{paisOrigen}" style="color: red;"></p>
+			</div>
+		</div>
 
 		<div>
 			<div>
