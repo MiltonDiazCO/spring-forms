@@ -22,9 +22,12 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.milton.spring.basico.form.editors.MayusculaEditor;
 import com.milton.spring.basico.form.editors.PaisPropertyEditor;
+import com.milton.spring.basico.form.editors.RolesPropertyEditor;
 import com.milton.spring.basico.form.models.domain.Pais;
+import com.milton.spring.basico.form.models.domain.Role;
 import com.milton.spring.basico.form.models.domain.Usuario;
 import com.milton.spring.basico.form.service.PaisService;
+import com.milton.spring.basico.form.service.RolService;
 import com.milton.spring.basico.form.validations.UsuarioValidador;
 
 @Controller
@@ -40,6 +43,12 @@ public class FormController {
 	@Autowired
 	private PaisPropertyEditor paisEditor;
 	
+	@Autowired
+	private RolService rolesService;
+	
+	@Autowired
+	private RolesPropertyEditor rolEditor;
+	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.addValidators(validador);
@@ -54,6 +63,9 @@ public class FormController {
 		
 		// Creando objeto de tipo Pais
 		binder.registerCustomEditor(Pais.class, "paisOrigen", paisEditor);
+		
+		// Creando lista con los roles de usuarios
+		binder.registerCustomEditor(Role.class, "roles", rolEditor);
 	}
 	
 	@ModelAttribute("paises")
@@ -64,6 +76,11 @@ public class FormController {
 	@ModelAttribute("paisService")
 	public List<Pais> paisService() {
 		return paisesService.list();
+	}
+	
+	@ModelAttribute("rolService")
+	public List<Role> rolService() {
+		return rolesService.list();
 	}
 
 	@GetMapping({ "/form" })

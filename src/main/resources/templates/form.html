@@ -9,17 +9,18 @@
 	<h3 th:text="${titulo}"></h3>
 
 	<form th:action="@{/form}" th:object="${usuario}" method="POST">
-		
+
 		<div>
 			<label for="identificadorRegular">Identificador Regular</label>
 			<div>
-				<input type="text" id="identificadorRegular" th:field="*{identificadorRegular}">
+				<input type="text" id="identificadorRegular"
+					th:field="*{identificadorRegular}">
 			</div>
 			<div th:if="${#fields.hasErrors('identificadorRegular')}">
 				<p th:errors="*{identificadorRegular}" style="color: red;"></p>
 			</div>
 		</div>
-		
+
 		<div>
 			<label for="username">Username</label>
 			<div>
@@ -49,7 +50,7 @@
 				<p th:errors="*{edad}" style="color: red;"></p>
 			</div>
 		</div>
-		
+
 		<div>
 			<label for="numeroCuenta">Numero de cuenta</label>
 			<div>
@@ -59,7 +60,7 @@
 				<p th:errors="*{numeroCuenta}" style="color: red;"></p>
 			</div>
 		</div>
-		
+
 		<div>
 			<label for="fechaNacimiento">Fecha de nacimiento</label>
 			<div>
@@ -69,19 +70,30 @@
 				<p th:errors="*{fechaNacimiento}" style="color: red;"></p>
 			</div>
 		</div>
-		
+
+		<div>
+			<label for="paisOrigen">País de origen</label>
 			<div>
-				<label for="paisOrigen">País de origen</label>
-				<div>
-					<select id="paisOrigen" th:field="*{paisOrigen}">
-						<option value="">Seleccione un país</option>
-						<option th:each="pais:${paisService}" th:value="${pais.id}" th:text="${pais.nombre}">
-					</select>
-				</div>
-				<div th:if="${#fields.hasErrors('paisOrigen')}">
-					<p th:errors="*{paisOrigen}" style="color: red;"></p>
-				</div>
+				<select id="paisOrigen" th:field="*{paisOrigen}">
+					<option value="">Seleccione un país</option>
+					<option th:each="pais:${paisService}" th:value="${pais.id}" th:text="${pais.nombre}">
+				</select>
 			</div>
+			<div th:if="${#fields.hasErrors('paisOrigen')}">
+				<p th:errors="*{paisOrigen}" style="color: red;"></p>
+			</div>
+		</div>
+		
+		<div>
+			<label>Roles de usuario</label>
+			<div th:each="rol:${rolService}">
+				<input type="checkbox" th:id="${rol.nombre}" th:field="*{roles}" th:value="${rol.id}">
+				<label th:for="${rol.nombre}" th:text="${rol.nombre}"></label>
+			</div>
+			<div th:if="${#fields.hasErrors('roles')}">
+				<p th:errors="*{roles}" style="color: red;"></p>
+			</div>
+		</div>
 
 		<div>
 			<div>

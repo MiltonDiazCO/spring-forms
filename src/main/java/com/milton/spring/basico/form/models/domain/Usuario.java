@@ -1,6 +1,7 @@
 package com.milton.spring.basico.form.models.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
@@ -40,6 +41,9 @@ public class Usuario {
 
 	@NotNull
 	private Pais paisOrigen;
+	
+	@NotEmpty
+	private List<Role> roles;
 
 	public int getIdentificador() {
 		return identificador;
@@ -103,6 +107,14 @@ public class Usuario {
 
 	public void setPaisOrigen(Pais paisOrigen) {
 		this.paisOrigen = paisOrigen;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 }
