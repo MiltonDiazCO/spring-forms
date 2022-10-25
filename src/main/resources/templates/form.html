@@ -74,9 +74,10 @@
 		<div>
 			<label for="paisOrigen">País de origen</label>
 			<div>
-				<select id="paisOrigen" th:field="*{paisOrigen}">
+				<select id="paisOrigen" name="paisOrigen">
 					<option value="">Seleccione un país</option>
-					<option th:each="pais:${paisService}" th:value="${pais.id}" th:text="${pais.nombre}">
+					<option th:each="pais:${paisService}" th:value="${pais.id}" th:text="${pais.nombre}"
+					th:selected="${pais.id} == 3">
 				</select>
 			</div>
 			<div th:if="${#fields.hasErrors('paisOrigen')}">
@@ -87,7 +88,8 @@
 		<div>
 			<label>Roles de usuario</label>
 			<div th:each="rol:${rolService}">
-				<input type="checkbox" th:id="${rol.nombre}" th:field="*{roles}" th:value="${rol.id}">
+				<input type="checkbox" th:id="${rol.id}" name="roles" th:value="${rol.id}"
+				th:checked="${rol.id == 2}">
 				<label th:for="${rol.nombre}" th:text="${rol.nombre}"></label>
 			</div>
 			<div th:if="${#fields.hasErrors('roles')}">
