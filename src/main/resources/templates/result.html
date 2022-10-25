@@ -3,41 +3,56 @@
 <head>
 <meta charset="UTF-8" />
 <title th:text="${titulo}"></title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+	crossorigin="anonymous">
 </head>
 <body>
 
-	<h3 th:text="${titulo}"></h3>
+	<div class="container">
 
-	<table>
-		<thead>
-			<tr>
-				<th>Identificador</th>
-				<th>Identificador Regular</th>
-				<th>Username</th>
-				<th>Email</th>
-				<th>edad</th>
-				<th>Número de cuenta</th>
-				<th>Fecha de nacimiento</th>
-				<th>País de origen</th>
-				<th>Roles de usuarios</th>
-				<th>Genero</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td th:text="${usuario.identificador}"></td>
-				<td th:text="${usuario.identificadorRegular}"></td>
-				<td th:text="${usuario.username}"></td>
-				<td th:text="${usuario.email}"></td>
-				<td th:text="${usuario.edad}"></td>
-				<td th:text="${usuario.numeroCuenta}"></td>
-				<td th:text="${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}"></td>
-				<td th:text="${usuario.paisOrigen.nombre}"></td>
-				<td th:each="rol:${usuario.roles}" th:text="${rol.nombre}"></td>
-				<td th:text="${usuario.genero}"></td>
-			</tr>
-		</tbody>
-	</table>
+		<div class="row">
+			<div class="col-md-12">
+
+				<h3 th:text="${titulo}"></h3>
+
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Identificador</th>
+							<th>Identificador Regular</th>
+							<th>Username</th>
+							<th>Email</th>
+							<th>edad</th>
+							<th>Número de cuenta</th>
+							<th>Fecha de nacimiento</th>
+							<th>País de origen</th>
+							<th>Roles de usuarios</th>
+							<th>Genero</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td th:text="${usuario.identificador}"></td>
+							<td th:text="${usuario.identificadorRegular}"></td>
+							<td th:text="${usuario.username}"></td>
+							<td th:text="${usuario.email}"></td>
+							<td th:text="${usuario.edad}"></td>
+							<td th:text="${usuario.numeroCuenta}"></td>
+							<td
+								th:text="${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}">
+							</td>
+							<td th:text="${usuario.paisOrigen.nombre}"></td>
+							<td th:each="rol:${usuario.roles}" th:text="${rol.nombre}"></td>
+							<td th:text="${usuario.genero}"></td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
