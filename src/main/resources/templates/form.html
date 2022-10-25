@@ -94,6 +94,17 @@
 				<p th:errors="*{roles}" style="color: red;"></p>
 			</div>
 		</div>
+		
+		<div>
+			<label for="genero">Genero</label>
+			<div th:each="genero:${generos}">
+				<input type="radio" th:id="${genero}" th:field="*{genero}" th:value="${genero}">
+				<label th:for="${genero}" th:text="${genero}"></label>
+			</div>
+			<div th:if="${#fields.hasErrors('genero')}">
+				<p th:errors="*{genero}" style="color: red;"></p>
+			</div>
+		</div>
 
 		<div>
 			<div>

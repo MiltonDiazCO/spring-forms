@@ -41,9 +41,12 @@ public class Usuario {
 
 	@NotNull
 	private Pais paisOrigen;
-	
+
 	@NotEmpty
 	private List<Role> roles;
+
+	@NotEmpty
+	private String genero;
 
 	public int getIdentificador() {
 		return identificador;
@@ -115,6 +118,14 @@ public class Usuario {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
 
 }

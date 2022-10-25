@@ -82,6 +82,11 @@ public class FormController {
 	public List<Role> rolService() {
 		return rolesService.list();
 	}
+	
+	@ModelAttribute("generos")
+	public List<String> generos() {
+		return Arrays.asList("FEMENINO", "MASCULINO");
+	}
 
 	@GetMapping({ "/form" })
 	public String form(Model model) {

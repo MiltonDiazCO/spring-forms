@@ -20,6 +20,7 @@
 				<th>Fecha de nacimiento</th>
 				<th>País de origen</th>
 				<th>Roles de usuarios</th>
+				<th>Genero</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,6 +34,7 @@
 				<td th:text="${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}"></td>
 				<td th:text="${usuario.paisOrigen.nombre}"></td>
 				<td th:each="rol:${usuario.roles}" th:text="${rol.nombre}"></td>
+				<td th:text="${usuario.genero}"></td>
 			</tr>
 		</tbody>
 	</table>
