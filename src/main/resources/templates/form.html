@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="htttp://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
 <title th:text="${titulo}"></title>
@@ -9,6 +9,8 @@
 	crossorigin="anonymous">
 </head>
 <body>
+
+	<section th:replace="components/delayAlert :: delayInterceptor"></section>
 
 	<div class="container">
 

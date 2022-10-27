@@ -20,7 +20,7 @@ public class DelayInterceptor implements HandlerInterceptor {
 		
 		logger.info("preHandle() entrando...");
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		return true;
 	}
@@ -30,7 +30,7 @@ public class DelayInterceptor implements HandlerInterceptor {
 			ModelAndView modelAndView) throws Exception {
 		
 		if(modelAndView != null) {
-			modelAndView.addObject("delayMessage", "Hay un retraso de 5 segundos");
+			modelAndView.addObject("delayMessage", "Hay un retraso de 2 segundos");
 			logger.info("postHandle() saliendo...");
 		}
 	}
