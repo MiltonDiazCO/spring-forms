@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.milton.spring.basico.form.interceptors.DelayInterceptor;
+import com.milton.spring.basico.form.interceptors.HorarioInterceptor;
 
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
@@ -15,9 +16,14 @@ public class MvcConfig implements WebMvcConfigurer {
 	@Qualifier("delayInterceptor")
 	private DelayInterceptor delayInterceptor;
 	
+	@Autowired
+	@Qualifier("horarioInterceptor")
+	private HorarioInterceptor horarioInterceptor;
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(delayInterceptor);
+		registry.addInterceptor(horarioInterceptor).excludePathPatterns("/cerrado");
 	}
 
 }

@@ -11,6 +11,10 @@
 <body>
 
 	<section th:replace="components/delayAlert :: delayInterceptor"></section>
+	
+	<div class="alert alert-warning">
+		<span th:text="${mensaje}"></span>
+	</div>
 
 	<div class="container">
 
